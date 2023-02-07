@@ -1,0 +1,66 @@
+.card-body {
+    padding: 40px !important;
+    border-radius: 5px;
+}
+
+.card-thin{
+    width: 350px !important;
+    margin: 0 auto;
+}
+
+.navbar-light .navbar-brand,
+.navbar-light .navbar-nav .nav-link {
+    color: white;
+  
+}
+
+.nav-background{
+    background-color: #1f1f1f;
+}
+
+.site-body {
+    /* background-color: #181a1b; */
+    background-color: #292929;
+}
+
+.fatter-text {
+    font-weight: 500;
+}
+
+.centered-label {
+    width: 250px !important;
+    margin: 0 auto;
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.form-control{
+    width: 250px !important;
+    margin: 0 auto;
+}
+
+.button-large {
+    width: 250px !important;
+}
+
+.text-small {
+    font-size: 16px;
+}
+
+.big-height {
+    height: 50px;
+    border-radius: 0;
+}
+
+.link-button {
+    background-color: transparent;
+    border: none;
+    color: #10a481;
+    text-decoration: underline;
+    cursor: pointer;
+  }
