@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { useState } from 'react';
 import { Form, Button, Container, FloatingLabel, Card } from 'react-bootstrap';
 import "./css/site.css";
@@ -6,8 +7,36 @@ const Login = () => {
     const [schoolId, setSchoolId] = useState("");
     const [password, setPassword] = useState("");
 
-    const openSignUpModal = ()=>{
-        console.log("Hello from modal");
+    const login = () => {
+        const url = "http://localhost/gamerate/students.php";
+
+        const jsonData = {
+            schoolId: schoolId,
+            password: password
+        }
+
+        const formData = new FormData();
+
+        formData.append("operation", "login");
+        formData.append("json", JSON.stringify(jsonData));
+
+        axios({
+            url: url,
+            data: formData,
+            method: "post"
+        })
+
+        .then((res) => {
+            if(res.data !== 0){
+                console.log(res.data)
+            }else{
+                console.log("Mali")
+            }
+        })
+
+        .catch((err) =>{
+            alert("There was an error occured: " + err);
+        })
     }
     
     return ( 
@@ -41,9 +70,7 @@ const Login = () => {
                             </Form.Group>
                         </Form.Group>
 
-                        <Button className="button-large mt-3 btn-lg big-height btn-success"><div className="text-small">Login</div></Button>
-                        
-                        <p className="mt-3">Don't have an account?<button className="link-button" onClick={openSignUpModal}>Sign Up</button> </p>
+                        <Button className="button-large mt-3 btn-lg big-height btn-success" onClick={login}><div className="text-small">Login</div></Button>
                     </Form>
                 </Card.Body>
             </Card>
