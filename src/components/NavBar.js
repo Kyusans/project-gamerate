@@ -9,6 +9,9 @@ function NavBar() {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
           <Nav.Link href="/">Home</Nav.Link>
+          <Nav.Link href="/about">About</Nav.Link>
+        </Nav>
+        <Nav className="ms-auto">
           <Nav.Link href="/login">Login</Nav.Link>
         </Nav>
       </Navbar.Collapse>

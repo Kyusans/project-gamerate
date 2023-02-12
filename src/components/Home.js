@@ -1,10 +1,13 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Container, Card, Button, Col, } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
     
     const [game, setGame] = useState([]);
+
+    const navigateTo = useNavigate();
 
     useEffect(() =>{
         getGames();
@@ -30,6 +33,10 @@ const Home = () => {
         })
     }
 
+    const handleSelectedGame = (gameId) =>{
+        navigateTo("/game", {state:{selectedGameId: gameId}})
+    }
+
     return ( 
         <>
             <Container className="text-center text-white">
@@ -47,7 +54,7 @@ const Home = () => {
                             </Card.Body>
 
                             <Card.Footer>
-                                <Button className="btn-succes">See more</Button>
+                                <Button className="btn-succes" size="lg" onClick={() => handleSelectedGame(games.game_id)}>See more</Button>
                             </Card.Footer>
                         </Card>
                     </Col>
